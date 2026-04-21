@@ -1,0 +1,3 @@
+# Matches parent repo pin
+[install]
+exact = true
