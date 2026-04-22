@@ -1,7 +1,7 @@
 /**
  * Optional native syntax-highlighting backend.
  *
- * The upstream Claude Code build depends on `color-diff-napi` — a Rust NAPI
+ * The upstream build depends on `color-diff-napi` — a Rust NAPI
  * module that turns file contents into ANSI-colored lines. That module is
  * not part of the standalone `@vancityayush/tui` package. This shim returns
  * `null`, which makes `HighlightedCode` and `StructuredDiff` fall back to

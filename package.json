@@ -1,7 +1,7 @@
 {
   "name": "@vancityayush/tui",
-  "version": "0.1.0",
-  "description": "Rich React+Yoga terminal UI engine extracted from Claude Code: synchronized output, alt-screen, hyperlinks, focus manager, selection/copy, theming, keybindings, vim-mode input.",
+  "version": "0.1.1",
+  "description": "Rich React+Yoga terminal UI engine: synchronized output, alt-screen, hyperlinks, focus manager, selection/copy, theming, keybindings, vim-mode input.",
   "type": "module",
   "module": "./dist/index.js",
   "main": "./dist/index.js",
@@ -11,6 +11,9 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": ["dist", "native", "README.md"],
   "packageManager": "bun@1.3.13",
@@ -53,6 +56,7 @@
     "build:types": "bunx tsc --emitDeclarationOnly",
     "build": "bun run build:js && bun run build:types",
     "prepublishOnly": "bun run build",
+    "example:interactive": "bun run examples/interactive.tsx",
     "example:minimal": "bun run examples/minimal.tsx",
     "example:themed": "bun run examples/themed.tsx",
     "example:keybindings": "bun run examples/keybindings.tsx"
