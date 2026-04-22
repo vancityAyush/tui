@@ -132,3 +132,19 @@ export function useNotifications(): {
 
   return { addNotification, removeNotification }
 }
+
+export function useOptionalNotifications(): {
+  addNotification: (notif: Notification) => void
+  removeNotification: (key: string) => void
+} {
+  const ctx = useContext(NotificationsContext)
+  const addNotification = useCallback((notif: Notification) => {
+    ctx?.dispatch({ type: 'add', notif })
+  }, [ctx])
+
+  const removeNotification = useCallback((key: string) => {
+    ctx?.dispatch({ type: 'remove', key })
+  }, [ctx])
+
+  return { addNotification, removeNotification }
+}

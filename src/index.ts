@@ -103,7 +103,13 @@ export { ProgressBar } from './components/design-system/ProgressBar.js'
 export { Ratchet } from './components/design-system/Ratchet.js'
 export { StatusIcon } from './components/design-system/StatusIcon.js'
 export { Tab, Tabs, useTabHeaderFocus, useTabsWidth } from './components/design-system/Tabs.js'
+export { BaseTextInput } from './components/BaseTextInput.js'
+export { FilePathLink } from './components/FilePathLink.js'
+export { PressEnterToContinue } from './components/PressEnterToContinue.js'
 export { default as Spinner } from './components/Spinner.js'
+export { default as TextInput } from './components/TextInput.js'
+export { ToolUseLoader } from './components/ToolUseLoader.js'
+export { default as VimTextInput } from './components/VimTextInput.js'
 
 // ── Keybinding engine ─────────────────────────────────────────────────────────
 export type {
@@ -172,6 +178,7 @@ export {
   NotificationsProvider,
   getNext,
   useNotifications,
+  useOptionalNotifications,
 } from './context/notifications.js'
 export type { PromptOverlayData, SuggestionItem } from './context/promptOverlayContext.js'
 export {
@@ -184,3 +191,69 @@ export {
 export { ModalContext, useIsInsideModal, useModalOrTerminalSize, useModalScrollRef } from './context/modalContext.js'
 export { FpsMetricsProvider, useFpsMetrics } from './context/fpsMetrics.js'
 export { MailboxProvider, useMailbox } from './context/mailbox.js'
+
+// ── Markdown rendering ───────────────────────────────────────────────────────
+export { Markdown, StreamingMarkdown } from './components/Markdown.js'
+export { MarkdownTable } from './components/MarkdownTable.js'
+export {
+  applyMarkdown,
+  configureMarked,
+  formatToken,
+  padAligned,
+} from './utils/markdown.js'
+export type { CliHighlight } from './utils/cliHighlight.js'
+export { getCliHighlightPromise, getLanguageName } from './utils/cliHighlight.js'
+export { stripPromptXMLTags } from './utils/stripPromptXMLTags.js'
+export { createHyperlink, OSC8_START, OSC8_END } from './utils/hyperlink.js'
+
+// ── Syntax-highlighted code ──────────────────────────────────────────────────
+export { HighlightedCode } from './components/HighlightedCode.js'
+export { HighlightedCodeFallback } from './components/HighlightedCode/Fallback.js'
+export { StructuredDiff } from './components/StructuredDiff.js'
+export { StructuredDiffFallback } from './components/StructuredDiff/Fallback.js'
+export {
+  expectColorDiff,
+  expectColorFile,
+  getColorModuleUnavailableReason,
+  getSyntaxTheme,
+} from './components/StructuredDiff/colorDiff.js'
+export type { ColorModuleUnavailableReason } from './components/StructuredDiff/colorDiff.js'
+
+// ── Lists & selection ────────────────────────────────────────────────────────
+export { OrderedList } from './components/ui/OrderedList.js'
+export { OrderedListItem } from './components/ui/OrderedListItem.js'
+export { Select as CustomSelect } from './components/CustomSelect/select.js'
+export type { OptionWithDescription, SelectProps } from './components/CustomSelect/select.js'
+export { SelectMulti } from './components/CustomSelect/SelectMulti.js'
+export type { SelectMultiProps } from './components/CustomSelect/SelectMulti.js'
+
+// ── ANSI → image / XML ───────────────────────────────────────────────────────
+export { ansiToSvg } from './utils/ansiToSvg.js'
+export { ansiToPng } from './utils/ansiToPng.js'
+export { escapeXml } from './utils/xml.js'
+
+// ── Image clickable refs ─────────────────────────────────────────────────────
+export { ClickableImageRef } from './components/ClickableImageRef.js'
+
+// ── Small utilities ──────────────────────────────────────────────────────────
+export { djb2Hash, hashContent, hashPair } from './utils/hash.js'
+export { convertLeadingTabsToSpaces } from './utils/file.js'
+export {
+  MACOS_OPTION_SPECIAL_CHARS,
+  isMacosOptionChar,
+} from './utils/keyboardShortcuts.js'
+export { useAfterFirstRender } from './hooks/useAfterFirstRender.js'
+
+// ── Input primitives ─────────────────────────────────────────────────────────
+export type {
+  BaseInputState,
+  BaseTextInputProps,
+  InlineGhostText,
+  TextInputState,
+  VimInputState,
+  VimMode,
+  VimTextInputProps,
+} from './types/textInputTypes.js'
+export type { TextHighlight } from './utils/textHighlighting.js'
+export { useTextInput } from './hooks/useTextInput.js'
+export { useVimInput } from './hooks/useVimInput.js'

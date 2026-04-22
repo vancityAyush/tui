@@ -30,7 +30,7 @@ type SpanProps = {
  * Memoized to prevent re-renders when parent changes but children string is the same.
  */
 // @ts-ignore
-export const Ansi = React.memo(function Ansi(t0) {
+export const Ansi: React.NamedExoticComponent<Props> = React.memo(function Ansi(t0) {
   const $ = _c(12);
   // @ts-ignore
   const {

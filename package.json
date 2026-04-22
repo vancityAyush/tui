@@ -28,12 +28,14 @@
     "chokidar": "5.0.0",
     "cli-boxes": "4.0.1",
     "code-excerpt": "4.0.0",
+    "diff": "^8.0.2",
     "emoji-regex": "10.6.0",
     "execa": "9.6.1",
     "figures": "6.1.0",
     "get-east-asian-width": "1.5.0",
     "indent-string": "5.0.0",
     "lodash-es": "^4.17.21",
+    "marked": "^16.4.0",
     "react-reconciler": "^0.31.0",
     "semver": "7.7.4",
     "signal-exit": "^4.1.0",
@@ -47,16 +49,19 @@
   },
   "scripts": {
     "typecheck": "bunx tsc --noEmit",
-    "build": "bun build ./src/index.ts --target=bun --outdir=dist --format=esm --external react --external react-reconciler --external react/jsx-runtime --external react/compiler-runtime",
+    "build:js": "bun build ./src/index.ts --target=bun --outdir=dist --format=esm --external react --external react-reconciler --external react/jsx-runtime --external react/compiler-runtime",
+    "build:types": "bunx tsc --emitDeclarationOnly",
+    "build": "bun run build:js && bun run build:types",
+    "prepublishOnly": "bun run build",
     "example:minimal": "bun run examples/minimal.tsx",
     "example:themed": "bun run examples/themed.tsx",
     "example:keybindings": "bun run examples/keybindings.tsx"
   },
   "keywords": ["tui", "terminal", "ink", "react", "cli", "yoga", "bun"],
   "license": "UNLICENSED",
-  "private": true,
   "devDependencies": {
     "@types/bun": "1.3.12",
+    "@types/diff": "^8.0.0",
     "@types/react": "19.2.14",
     "@types/react-reconciler": "0.33.0"
   }
